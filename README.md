@@ -24,11 +24,13 @@ $ cargo run
 
 ```bash	
 # Rust
-$ ./rs/protoc-rust-cli/target/debug/protoc-rust-cli --out=./rs/protos ./proto
-3/agent.proto
+$ ./rs/protoc-rust-cli/target/debug/protoc-rust-cli --out=./rs/protos ./proto3/agent.proto
 
 # C++
 $ protoc --cpp_out=cc/protos ./proto3/agent.proto
+
+# PhP+
+$ protoc --php_out=php/protos ./proto3/agent.proto
 
 # Python
 $ protoc --python_out=py/protos ./proto3/agent.proto

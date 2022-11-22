@@ -1,34 +1,35 @@
 load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
-load("@rules_proto//proto:defs.bzl", "proto_library")
 
-cc_proto_library(
-    name = "person_cc_proto",
-    deps = [":person_proto"],
-)
-proto_library(
-    name = "person_proto",
-    srcs = ["person.proto"],
-    deps = [":address_proto"],
-)
 
-proto_library(
-    name = "address_proto",
-    srcs = ["address.proto"],
-    deps = [":zip_code_proto"],
+
+cc_library (
+    name = "pb",
+    srcs = ["protos/proto3/agent.pb.cc"],
+    hdrs = ["protos/proto3/agent.pb.h"],
+    deps = ["@com_google_protobuf//:protobuf"],
+    visibility = ["//visibility:public"],
 )
 
-proto_library(
-    name = "zip_code_proto",
-    srcs = ["zip_code.proto"],
+cc_binary(
+    name = "create_pb",
+    srcs = [
+        "src/create_pb.cpp",
+    ],
+    deps = [
+        ":pb",
+    ],
+    visibility = ["//visibility:public"],
 )
+
 
 
 cc_binary(
-    name = "main",
+    name = "read_pb",
     srcs = [
-        "src/main.cpp",
+        "src/read_pb.cpp",
     ],
     deps = [
+        ":pb",
     ],
     visibility = ["//visibility:public"],
 )

@@ -29,7 +29,6 @@ pub struct Weights {
     pub id: i32,
     pub name: ::std::string::String,
     pub weight: ::std::vec::Vec<f32>,
-    pub created_at: ::protobuf::SingularPtrField<::protobuf::well_known_types::Timestamp>,
     // special fields
     pub unknown_fields: ::protobuf::UnknownFields,
     pub cached_size: ::protobuf::CachedSize,
@@ -111,48 +110,10 @@ impl Weights {
     pub fn take_weight(&mut self) -> ::std::vec::Vec<f32> {
         ::std::mem::replace(&mut self.weight, ::std::vec::Vec::new())
     }
-
-    // .google.protobuf.Timestamp created_at = 4;
-
-
-    pub fn get_created_at(&self) -> &::protobuf::well_known_types::Timestamp {
-        self.created_at.as_ref().unwrap_or_else(|| <::protobuf::well_known_types::Timestamp as ::protobuf::Message>::default_instance())
-    }
-    pub fn clear_created_at(&mut self) {
-        self.created_at.clear();
-    }
-
-    pub fn has_created_at(&self) -> bool {
-        self.created_at.is_some()
-    }
-
-    // Param is passed by value, moved
-    pub fn set_created_at(&mut self, v: ::protobuf::well_known_types::Timestamp) {
-        self.created_at = ::protobuf::SingularPtrField::some(v);
-    }
-
-    // Mutable pointer to the field.
-    // If field is not initialized, it is initialized with default value first.
-    pub fn mut_created_at(&mut self) -> &mut ::protobuf::well_known_types::Timestamp {
-        if self.created_at.is_none() {
-            self.created_at.set_default();
-        }
-        self.created_at.as_mut().unwrap()
-    }
-
-    // Take field
-    pub fn take_created_at(&mut self) -> ::protobuf::well_known_types::Timestamp {
-        self.created_at.take().unwrap_or_else(|| ::protobuf::well_known_types::Timestamp::new())
-    }
 }
 
 impl ::protobuf::Message for Weights {
     fn is_initialized(&self) -> bool {
-        for v in &self.created_at {
-            if !v.is_initialized() {
-                return false;
-            }
-        };
         true
     }
 
@@ -173,9 +134,6 @@ impl ::protobuf::Message for Weights {
                 3 => {
                     ::protobuf::rt::read_repeated_float_into(wire_type, is, &mut self.weight)?;
                 },
-                4 => {
-                    ::protobuf::rt::read_singular_message_into(wire_type, is, &mut self.created_at)?;
-                },
                 _ => {
                     ::protobuf::rt::read_unknown_or_skip_group(field_number, wire_type, is, self.mut_unknown_fields())?;
                 },
@@ -195,10 +153,6 @@ impl ::protobuf::Message for Weights {
             my_size += ::protobuf::rt::string_size(2, &self.name);
         }
         my_size += 5 * self.weight.len() as u32;
-        if let Some(ref v) = self.created_at.as_ref() {
-            let len = v.compute_size();
-            my_size += 1 + ::protobuf::rt::compute_raw_varint32_size(len) + len;
-        }
         my_size += ::protobuf::rt::unknown_fields_size(self.get_unknown_fields());
         self.cached_size.set(my_size);
         my_size
@@ -214,11 +168,6 @@ impl ::protobuf::Message for Weights {
         for v in &self.weight {
             os.write_float(3, *v)?;
         };
-        if let Some(ref v) = self.created_at.as_ref() {
-            os.write_tag(4, ::protobuf::wire_format::WireTypeLengthDelimited)?;
-            os.write_raw_varint32(v.get_cached_size())?;
-            v.write_to_with_cached_sizes(os)?;
-        }
         os.write_unknown_fields(self.get_unknown_fields())?;
         ::std::result::Result::Ok(())
     }
@@ -272,11 +221,6 @@ impl ::protobuf::Message for Weights {
                 |m: &Weights| { &m.weight },
                 |m: &mut Weights| { &mut m.weight },
             ));
-            fields.push(::protobuf::reflect::accessor::make_singular_ptr_field_accessor::<_, ::protobuf::types::ProtobufTypeMessage<::protobuf::well_known_types::Timestamp>>(
-                "created_at",
-                |m: &Weights| { &m.created_at },
-                |m: &mut Weights| { &mut m.created_at },
-            ));
             ::protobuf::reflect::MessageDescriptor::new_pb_name::<Weights>(
                 "Weights",
                 fields,
@@ -296,7 +240,6 @@ impl ::protobuf::Clear for Weights {
         self.id = 0;
         self.name.clear();
         self.weight.clear();
-        self.created_at.clear();
         self.unknown_fields.clear();
     }
 }
@@ -314,11 +257,9 @@ impl ::protobuf::reflect::ProtobufValue for Weights {
 }
 
 static file_descriptor_proto_data: &'static [u8] = b"\
-    \n\x0bagent.proto\x1a\x1fgoogle/protobuf/timestamp.proto\"\x80\x01\n\x07\
-    Weights\x12\x0e\n\x02id\x18\x01\x20\x01(\x05R\x02id\x12\x12\n\x04name\
-    \x18\x02\x20\x01(\tR\x04name\x12\x16\n\x06weight\x18\x03\x20\x03(\x02R\
-    \x06weight\x129\n\ncreated_at\x18\x04\x20\x01(\x0b2\x1a.google.protobuf.\
-    TimestampR\tcreatedAtb\x06proto3\
+    \n\x0bagent.proto\"E\n\x07Weights\x12\x0e\n\x02id\x18\x01\x20\x01(\x05R\
+    \x02id\x12\x12\n\x04name\x18\x02\x20\x01(\tR\x04name\x12\x16\n\x06weight\
+    \x18\x03\x20\x03(\x02R\x06weightb\x06proto3\
 ";
 
 static file_descriptor_proto_lazy: ::protobuf::rt::LazyV2<::protobuf::descriptor::FileDescriptorProto> = ::protobuf::rt::LazyV2::INIT;

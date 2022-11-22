@@ -1,6 +1,5 @@
 syntax = "proto3";
 
-import "google/protobuf/timestamp.proto";
 
 message Weights {
     
@@ -10,7 +9,6 @@ message Weights {
     
     repeated float weight = 3;
 
-    google.protobuf.Timestamp created_at = 4;
     
     
 }
