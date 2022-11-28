@@ -1,1 +1,1 @@
-/home/icirauqui/w4rkspace/rust-protobuf/rs/rust-if/target/debug/rust-if: /home/icirauqui/w4rkspace/rust-protobuf/rs/rust-if/src/../../protos/agent.rs /home/icirauqui/w4rkspace/rust-protobuf/rs/rust-if/src/main.rs
+/home/icirauqui/w4rkspace/CloudFlare/protobuf-base/rs/rust-if/target/debug/rust-if: /home/icirauqui/w4rkspace/CloudFlare/protobuf-base/rs/rust-if/src/../../protos/agent.rs /home/icirauqui/w4rkspace/CloudFlare/protobuf-base/rs/rust-if/src/main.rs
