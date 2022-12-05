@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+
+message SwitchConfig {
+    
+    float learning_rate = 1;
+    
+    int32 batch_size = 2;
+    
+    int32 epochs = 3;
+    
+    bool dp = 4;
+
+    float epsilon = 5;
+    
+}

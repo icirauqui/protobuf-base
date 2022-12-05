@@ -1,3 +1,3 @@
 // @generated
 
-pub mod agent;
+pub mod switch_config;

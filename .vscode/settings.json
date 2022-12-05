@@ -59,6 +59,8 @@
         "cinttypes": "cpp",
         "typeinfo": "cpp",
         "regex": "cpp",
-        "*.inc": "cpp"
-    }
+        "*.inc": "cpp",
+        "sstream": "cpp"
+    },
+    "C_Cpp.errorSquiggles": "Enabled"
 }

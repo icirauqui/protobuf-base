@@ -30,6 +30,7 @@ $ protoc --rust_out ./rs/protos ./proto3/agent.proto
 
 # C++
 $ protoc --cpp_out=cc/protos ./proto3/agent.proto
+$ protoc --cpp_out=cc/protos ./proto3/switch_parcel.proto
 
 # PhP+
 $ protoc --php_out=php/protos ./proto3/agent.proto

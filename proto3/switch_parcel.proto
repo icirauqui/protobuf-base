@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+
+message SwitchParcel {
+    
+    int32 id = 1;
+    
+    string name = 2;
+    
+    repeated float weight = 3;
+
+    
+    
+}

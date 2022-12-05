@@ -3,12 +3,22 @@ load("@rules_cc//cc:defs.bzl", "cc_binary", "cc_library")
 
 
 cc_library (
-    name = "pb",
+    name = "agent_pb",
     srcs = ["protos/proto3/agent.pb.cc"],
     hdrs = ["protos/proto3/agent.pb.h"],
     deps = ["@com_google_protobuf//:protobuf"],
     visibility = ["//visibility:public"],
 )
+
+cc_library (
+    name = "switch_parcel_pb",
+    srcs = ["protos/proto3/switch_parcel.pb.cc"],
+    hdrs = ["protos/proto3/switch_parcel.pb.h"],
+    deps = ["@com_google_protobuf//:protobuf"],
+    visibility = ["//visibility:public"],
+)
+
+
 
 cc_binary(
     name = "create_pb",
@@ -16,7 +26,8 @@ cc_binary(
         "src/create_pb.cpp",
     ],
     deps = [
-        ":pb",
+        ":agent_pb",
+        ":switch_parcel_pb",
     ],
     visibility = ["//visibility:public"],
 )
@@ -29,7 +40,8 @@ cc_binary(
         "src/read_pb.cpp",
     ],
     deps = [
-        ":pb",
+        ":agent_pb",
+        ":switch_parcel_pb",
     ],
     visibility = ["//visibility:public"],
 )
