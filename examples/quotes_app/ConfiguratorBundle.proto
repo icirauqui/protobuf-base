@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+message ConfiguratorBundle {
+    string data_in = 1;
+    string data_out = 2;
+    bool is_valid = 3;
+}

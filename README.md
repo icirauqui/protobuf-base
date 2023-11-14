@@ -37,6 +37,12 @@ $ protoc --php_out=php/protos ./proto3/agent.proto
 
 # Python
 $ protoc --python_out=py/protos ./proto3/agent.proto
+
+# Dart-Flutter
+$ protoc --dart_out=flutter_dart/protos ./proto3/agent.proto
+
+# C#
+$ protoc --csharp_out=csharp/protos ./proto3/agent.proto
 ```
 
 
