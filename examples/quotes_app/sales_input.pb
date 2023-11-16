@@ -1,0 +1,68 @@
+
+êDavis Ave
+40.4406248
+-79.9958864
+100.00
+16
+N/A
+Yes
+0
+6
+10.00
+12.00
+3.166666667
+No
+Pine
+AASHTO
+90.00
+H5
+30.00
+Unknown
+0
+0
+0
+115.00
+Unknown
+0
+0.00
+0
+None
+No
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+HSS 6x6x1/4
+Vertical Picket
+N/A
+N/A
+N/A
+N/A
+N/A
+Yes
+N/A
+No
+No
+No
+N/A
+4
+42
+Painted
+2
+No
+No
+No
+1.17
+0.90
+0.90
+1.05
+1.12
+0.87
+0.87
+0.87
+0.40
