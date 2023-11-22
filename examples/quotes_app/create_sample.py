@@ -1,5 +1,5 @@
 import json
-import ConfiguratorBundle_pb2
+import python.ConfiguratorBundle_pb2
 
 def main():
 
@@ -22,11 +22,11 @@ def main():
 
 
     # Create the proto object that we will binary serialize
-    _protobuffer = ConfiguratorBundle_pb2.ConfiguratorBundle()
+    _protobuffer = python.ConfiguratorBundle_pb2.ConfiguratorBundle()
     _protobuffer.data_in = data_in
 
     # Write the file to disk
-    out_file = "sales_input.in"
+    out_file = "data/configurator_bundle.in"
     with open(out_file, "wb") as f:
         f.write(_protobuffer.SerializeToString())
     f.close()
@@ -49,7 +49,7 @@ def main():
     # So you can do something like this:
     import time
     timer = 0
-    while not os.path.exists("csharp_out.pb") and timer < 120:
+    while not os.path.exists("data/configurator_bundle.pb") and timer < 120:
         time.sleep(1)
         timer+=1
 

@@ -22,13 +22,14 @@ public static partial class ConfiguratorBundleReflection {
   static ConfiguratorBundleReflection() {
     byte[] descriptorData = global::System.Convert.FromBase64String(
         string.Concat(
-          "ChhDb25maWd1cmF0b3JCdW5kbGUucHJvdG8iSQoSQ29uZmlndXJhdG9yQnVu",
-          "ZGxlEg8KB2RhdGFfaW4YASABKAkSEAoIZGF0YV9vdXQYAiABKAkSEAoIaXNf",
-          "dmFsaWQYAyABKAhiBnByb3RvMw=="));
+          "ChhDb25maWd1cmF0b3JCdW5kbGUucHJvdG8iZwoSQ29uZmlndXJhdG9yQnVu",
+          "ZGxlEg8KB2RhdGFfaW4YASABKAkSEAoIaXNfdmFsaWQYAiABKAgSFQoNZGF0",
+          "YV9vdXRfY29zdBgDIAEoCRIXCg9kYXRhX291dF93ZWlnaHQYBCABKAliBnBy",
+          "b3RvMw=="));
     descriptor = pbr::FileDescriptor.FromGeneratedCode(descriptorData,
         new pbr::FileDescriptor[] { },
         new pbr::GeneratedClrTypeInfo(null, null, new pbr::GeneratedClrTypeInfo[] {
-          new pbr::GeneratedClrTypeInfo(typeof(global::ConfiguratorBundle), global::ConfiguratorBundle.Parser, new[]{ "DataIn", "DataOut", "IsValid" }, null, null, null, null)
+          new pbr::GeneratedClrTypeInfo(typeof(global::ConfiguratorBundle), global::ConfiguratorBundle.Parser, new[]{ "DataIn", "IsValid", "DataOutCost", "DataOutWeight" }, null, null, null, null)
         }));
   }
   #endregion
@@ -71,8 +72,9 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
   public ConfiguratorBundle(ConfiguratorBundle other) : this() {
     dataIn_ = other.dataIn_;
-    dataOut_ = other.dataOut_;
     isValid_ = other.isValid_;
+    dataOutCost_ = other.dataOutCost_;
+    dataOutWeight_ = other.dataOutWeight_;
     _unknownFields = pb::UnknownFieldSet.Clone(other._unknownFields);
   }
 
@@ -94,20 +96,8 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
     }
   }
 
-  /// <summary>Field number for the "data_out" field.</summary>
-  public const int DataOutFieldNumber = 2;
-  private string dataOut_ = "";
-  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
-  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
-  public string DataOut {
-    get { return dataOut_; }
-    set {
-      dataOut_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
-    }
-  }
-
   /// <summary>Field number for the "is_valid" field.</summary>
-  public const int IsValidFieldNumber = 3;
+  public const int IsValidFieldNumber = 2;
   private bool isValid_;
   [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
   [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
@@ -115,6 +105,30 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
     get { return isValid_; }
     set {
       isValid_ = value;
+    }
+  }
+
+  /// <summary>Field number for the "data_out_cost" field.</summary>
+  public const int DataOutCostFieldNumber = 3;
+  private string dataOutCost_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public string DataOutCost {
+    get { return dataOutCost_; }
+    set {
+      dataOutCost_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
+    }
+  }
+
+  /// <summary>Field number for the "data_out_weight" field.</summary>
+  public const int DataOutWeightFieldNumber = 4;
+  private string dataOutWeight_ = "";
+  [global::System.Diagnostics.DebuggerNonUserCodeAttribute]
+  [global::System.CodeDom.Compiler.GeneratedCode("protoc", null)]
+  public string DataOutWeight {
+    get { return dataOutWeight_; }
+    set {
+      dataOutWeight_ = pb::ProtoPreconditions.CheckNotNull(value, "value");
     }
   }
 
@@ -134,8 +148,9 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
       return true;
     }
     if (DataIn != other.DataIn) return false;
-    if (DataOut != other.DataOut) return false;
     if (IsValid != other.IsValid) return false;
+    if (DataOutCost != other.DataOutCost) return false;
+    if (DataOutWeight != other.DataOutWeight) return false;
     return Equals(_unknownFields, other._unknownFields);
   }
 
@@ -144,8 +159,9 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
   public override int GetHashCode() {
     int hash = 1;
     if (DataIn.Length != 0) hash ^= DataIn.GetHashCode();
-    if (DataOut.Length != 0) hash ^= DataOut.GetHashCode();
     if (IsValid != false) hash ^= IsValid.GetHashCode();
+    if (DataOutCost.Length != 0) hash ^= DataOutCost.GetHashCode();
+    if (DataOutWeight.Length != 0) hash ^= DataOutWeight.GetHashCode();
     if (_unknownFields != null) {
       hash ^= _unknownFields.GetHashCode();
     }
@@ -168,13 +184,17 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
       output.WriteRawTag(10);
       output.WriteString(DataIn);
     }
-    if (DataOut.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(DataOut);
-    }
     if (IsValid != false) {
-      output.WriteRawTag(24);
+      output.WriteRawTag(16);
       output.WriteBool(IsValid);
+    }
+    if (DataOutCost.Length != 0) {
+      output.WriteRawTag(26);
+      output.WriteString(DataOutCost);
+    }
+    if (DataOutWeight.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(DataOutWeight);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(output);
@@ -190,13 +210,17 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
       output.WriteRawTag(10);
       output.WriteString(DataIn);
     }
-    if (DataOut.Length != 0) {
-      output.WriteRawTag(18);
-      output.WriteString(DataOut);
-    }
     if (IsValid != false) {
-      output.WriteRawTag(24);
+      output.WriteRawTag(16);
       output.WriteBool(IsValid);
+    }
+    if (DataOutCost.Length != 0) {
+      output.WriteRawTag(26);
+      output.WriteString(DataOutCost);
+    }
+    if (DataOutWeight.Length != 0) {
+      output.WriteRawTag(34);
+      output.WriteString(DataOutWeight);
     }
     if (_unknownFields != null) {
       _unknownFields.WriteTo(ref output);
@@ -211,11 +235,14 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
     if (DataIn.Length != 0) {
       size += 1 + pb::CodedOutputStream.ComputeStringSize(DataIn);
     }
-    if (DataOut.Length != 0) {
-      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataOut);
-    }
     if (IsValid != false) {
       size += 1 + 1;
+    }
+    if (DataOutCost.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataOutCost);
+    }
+    if (DataOutWeight.Length != 0) {
+      size += 1 + pb::CodedOutputStream.ComputeStringSize(DataOutWeight);
     }
     if (_unknownFields != null) {
       size += _unknownFields.CalculateSize();
@@ -232,11 +259,14 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
     if (other.DataIn.Length != 0) {
       DataIn = other.DataIn;
     }
-    if (other.DataOut.Length != 0) {
-      DataOut = other.DataOut;
-    }
     if (other.IsValid != false) {
       IsValid = other.IsValid;
+    }
+    if (other.DataOutCost.Length != 0) {
+      DataOutCost = other.DataOutCost;
+    }
+    if (other.DataOutWeight.Length != 0) {
+      DataOutWeight = other.DataOutWeight;
     }
     _unknownFields = pb::UnknownFieldSet.MergeFrom(_unknownFields, other._unknownFields);
   }
@@ -257,12 +287,16 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
           DataIn = input.ReadString();
           break;
         }
-        case 18: {
-          DataOut = input.ReadString();
+        case 16: {
+          IsValid = input.ReadBool();
           break;
         }
-        case 24: {
-          IsValid = input.ReadBool();
+        case 26: {
+          DataOutCost = input.ReadString();
+          break;
+        }
+        case 34: {
+          DataOutWeight = input.ReadString();
           break;
         }
       }
@@ -284,12 +318,16 @@ public sealed partial class ConfiguratorBundle : pb::IMessage<ConfiguratorBundle
           DataIn = input.ReadString();
           break;
         }
-        case 18: {
-          DataOut = input.ReadString();
+        case 16: {
+          IsValid = input.ReadBool();
           break;
         }
-        case 24: {
-          IsValid = input.ReadBool();
+        case 26: {
+          DataOutCost = input.ReadString();
+          break;
+        }
+        case 34: {
+          DataOutWeight = input.ReadString();
           break;
         }
       }

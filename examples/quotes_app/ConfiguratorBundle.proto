@@ -2,6 +2,7 @@ syntax = "proto3";
 
 message ConfiguratorBundle {
     string data_in = 1;
-    string data_out = 2;
-    bool is_valid = 3;
+    bool is_valid = 2;
+    string data_out_cost = 3;
+    string data_out_weight = 4;
 }
